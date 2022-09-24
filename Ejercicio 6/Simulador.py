@@ -11,6 +11,7 @@ class Simulador:
     __totalP: int
     __totalAtendidos: int
     
+    
     def __init__(self):
         self.__reloj = 0
         self.__Tsimulacion = 60 * 8 # 8 horas
@@ -30,7 +31,7 @@ class Simulador:
         print("Total de pacientes que esperaron ser atendidos:",self.__totalP - self.__totalAtendidos)
     
     def llegaPaciente(self):
-        numero = random.random()
+        numero = random.random() # Genera un numero aleatorio entre 0 y 1
         if numero <= (1/self.__Tllegada):
             #Prioridad 1: Pacientes con mayor riesgo a 100 Pacientes con menor riesgo
             prioridad = random.randint(1,100)

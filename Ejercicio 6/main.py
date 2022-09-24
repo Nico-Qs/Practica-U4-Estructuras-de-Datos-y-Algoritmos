@@ -1,4 +1,3 @@
-from MonticuloBinario import ColadePrioridad
 from Simulador import Simulador
 
 

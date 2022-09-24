@@ -38,8 +38,8 @@ class ColadePrioridad:
             self.__cantidad += 1
             self.__array[self.__cantidad] = element
             actual = self.__cantidad
-            Padre = self.padre(actual)
             #Propiedad de orden
+            Padre = self.padre(actual)
             while self.__array[actual] < self.__array[Padre]:
                 self.intercambiar(actual, Padre)
                 actual = Padre
@@ -48,7 +48,7 @@ class ColadePrioridad:
     def minimo_a_eliminar(self,pos):
         Padre = pos
         Hizq = self.hijo_izquierdo(pos)
-        Hder = self.hijo_derecho(pos)
+        Hder = self.hijo_derecho(pos) 
         #Mientras no sea hoja y el padre sea mayor que alguno de sus hijos
         while  not self.esHoja(Hder) and (self.__array[Padre] > self.__array[Hizq] or self.__array[Hder]):
             if self.__array[Hizq] <= self.__array[Hder]: #Compara los hijos para ver cual es el menor

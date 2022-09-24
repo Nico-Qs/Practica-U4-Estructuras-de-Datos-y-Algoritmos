@@ -90,14 +90,14 @@ class MinHeap:
   
         popped = self.Heap[self.FRONT]
         self.Heap[self.FRONT] = self.Heap[self.size]
-        #self.Heap[self.size] = None
+        self.Heap[self.size] = None
         self.size-= 1
         self.minHeapify(self.FRONT)
         return popped
   
 # Driver Code
 if __name__ == "__main__":
-      
+    
     print('The minHeap is ')
     minHeap = MinHeap(15)
     minHeap.insert(10)
