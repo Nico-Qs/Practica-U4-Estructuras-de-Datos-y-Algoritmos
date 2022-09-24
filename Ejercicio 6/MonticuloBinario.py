@@ -25,7 +25,7 @@ class ColadePrioridad:
         return (posicion*2) + 1
     
     def esHoja(self,posicion):
-        return (posicion*2) + 1 > self.__cantidad
+        return posicion > self.__cantidad
     
     def intercambiar(self,pos1,pos2):
         self.__array[pos1],self.__array[pos2] = self.__array[pos2],self.__array[pos1]
@@ -49,14 +49,13 @@ class ColadePrioridad:
         Padre = pos
         Hizq = self.hijo_izquierdo(pos)
         Hder = self.hijo_derecho(pos)
-        while not self.esHoja(Padre): #Controla que no sea hoja el padre
-            if self.__array[Padre] > self.__array[Hizq] or self.__array[Padre] > self.__array[Hder]: #Controla que el padre sea mayor que sus hijos
-                if self.__array[Hizq] <= self.__array[Hder]: #Compara los hijos para ver cual es el menor
-                    self.intercambiar(Padre,Hizq)
-                    Padre = Hizq
-                else:
-                    self.intercambiar(Padre,Hder)
-                    Padre = Hder
+        while  not self.esHoja(Hder) and (self.__array[Padre] > self.__array[Hizq] or self.__array[Hder]):#Mientras no sea hoja y el padre sea mayor que alguno de sus hijos
+            if self.__array[Hizq] <= self.__array[Hder]: #Compara los hijos para ver cual es el menor
+                self.intercambiar(Padre,Hizq)
+                Padre = Hizq
+            else:
+                self.intercambiar(Padre,Hder)
+                Padre = Hder
             #Actualiza los hijos
             Hizq = self.hijo_izquierdo(Padre) 
             Hder = self.hijo_derecho(Padre)
