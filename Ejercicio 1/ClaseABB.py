@@ -135,13 +135,17 @@ class ABB:
     
     def esHijo(self,subArbol,datoHijo,datoPadre):
         Padre = self.buscar(subArbol,datoPadre)
+        esHijo = False
         if Padre != None:
-            if datoHijo < datoPadre:
-                return Padre.getIzquierdo().getDato() == datoHijo
-            else:
-                return Padre.getDerecho().getDato() == datoHijo
+            if datoHijo < datoPadre and Padre.tieneIzquierdo():
+                if Padre.getIzquierdo().getDato() == datoHijo:
+                    esHijo = True
+            elif datoHijo > datoPadre and Padre.tieneDerecho():
+                if Padre.getDerecho().getDato() == datoHijo:
+                    esHijo = True
+            return esHijo
         else:
-            return False
+            print("No se encontro el padre")
     
     
     def getPadre(self,subArbol,datoHijo):

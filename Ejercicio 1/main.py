@@ -14,6 +14,7 @@ if __name__ == "__main__":
     ArbolBB.insertar(raiz,15)
     ArbolBB.insertar(raiz,82)
     #print("Recorrido InOrden")
+    print("Es hijo 40 de 20??: ", ArbolBB.esHijo(raiz,35,10))
     #ArbolBB.inOrden(raiz)
     print("PreOrden")
     ArbolBB.preOrden(raiz)
